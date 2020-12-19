@@ -48,13 +48,13 @@ namespace Post_Comment_API.Controllers.api
             return Ok(post);
         }
         [Route("{id}")]
-        public IHttpActionResult Delete([FromUri] int id,[FromBody] int lid)
+        public IHttpActionResult Delete([FromUri] int id /*,[FromBody] int lid*/)
         {
             CommentRepository comrepo = new CommentRepository();
             var comm = comrepo.GetCommentsByPost(id);
-           var userlist= postrepo.Get(lid);
-            if (userlist.Lid == lid)
-            {
+           //var userlist= postrepo.Get(lid);
+           // if (userlist.Lid == lid)
+           // {
                 if (comm == null)
                 {
                 }
@@ -68,11 +68,11 @@ namespace Post_Comment_API.Controllers.api
 
                 postrepo.Delete(id);
                 return StatusCode(HttpStatusCode.NoContent);
-            }
-            else
-            {
-                return Ok();
-            }
+            //}
+            //else
+            //{
+            //    return Ok(comm);
+            //}
         }
 
         // /posts/{id}/comments   Read all comments for a post

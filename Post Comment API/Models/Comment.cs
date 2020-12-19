@@ -20,8 +20,9 @@ namespace Post_Comment_API.Models
         public string CommentDetails { get; set; }
         public int PostId { get; set; }
         public int Lid { get; set; }
+        public virtual Post Post { get; set; }
         [XmlIgnore, JsonIgnore]
         public virtual Login Login { get; set; }
-        public virtual Post Post { get; set; }
+        
     }
 }
